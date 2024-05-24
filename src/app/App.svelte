@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { data } from '../data/posts'
   const DEFAULT_DATA = {
     href: "",
     imgSrc: "",
@@ -12,69 +13,6 @@
     4: 'Viernes',
     5: 'Sabado',
     6: 'Domingo',
-  }
-
-  const data = {
-    '06': {
-      href: "https://www.instagram.com/reel/C5etbxhs-fN",
-      imgSrc: "/publicaciones/abril/06.png",
-    },
-    '010': {
-      href: "https://www.instagram.com/p/C5oi80DP60w",
-      imgSrc: "/publicaciones/abril/010.png",
-    },
-    '011': {
-      href: "https://www.instagram.com/p/C5qoAeXOJ11",
-      imgSrc: "/publicaciones/abril/011.png",
-    },
-    '013': {
-      href: "https://www.instagram.com/p/C5w3SnQuJtC",
-      imgSrc: "/publicaciones/abril/010.png",
-    },
-    '014': {
-      href: "https://www.instagram.com/p/C5yOmqxOcXi",
-      imgSrc: "/publicaciones/abril/014.png",
-    },
-    '016': {
-      href: "https://www.instagram.com/reel/C54BOtzvBnM",
-      imgSrc: "/publicaciones/abril/016.png",
-    },
-    '017': {
-      href: "https://www.instagram.com/p/C56rdSivx",
-      imgSrc: "/publicaciones/abril/017.png",
-    },
-    '018': {
-      href: "https://www.instagram.com/reel/C59OeVASa6g",
-      imgSrc: "/publicaciones/abril/018.png",
-    },
-    '022': {
-      href: "https://www.instagram.com/p/C6HhdhsvjHE",
-      imgSrc: "/publicaciones/abril/022.png",
-    },
-    '023': {
-      href: "https://www.instagram.com/p/C6Jyw8Cvvmd",
-      imgSrc: "/publicaciones/abril/023.png",
-    },
-    '024': {
-      href: "https://www.instagram.com/reel/C6MowNDuua9",
-      imgSrc: "/publicaciones/abril/024.png",
-    },
-    '025': {
-      href: "https://www.instagram.com/p/C6OySe3ud6h",
-      imgSrc: "/publicaciones/abril/025.png",
-    },
-    '028': {
-      href: "https://www.instagram.com/reel/C6WfADMxMlz",
-      imgSrc: "/publicaciones/abril/028.png",
-    },
-    '029': {
-      href: "https://www.instagram.com/p/C6ZW_hsPFYl",
-      imgSrc: "/publicaciones/abril/029.png",
-    },
-    '118': {
-      href: "",
-      imgSrc: "/publicaciones/abril/010.png",
-    },
   }
 
   const posts = Object.keys(data).length
@@ -120,11 +58,12 @@
 
   const handleIncrementMonth = () => {
     if (currentMonthIndex < months.length - 1) currentMonthIndex++
-    activeButtonId = '06'
+    activeButtonId = '10'
   }
 
   const handleDecrementMonth = () => {
     if (currentMonthIndex > 0) currentMonthIndex--
+    activeButtonId = '06'
   }
 
   const handleDataClicked = (event: MouseEvent) => {
@@ -154,7 +93,7 @@
       </div>
       <div class="grid grid-cols-7 mb-4">
         {#each header as title}
-          <p class="text-white font-bold text-center capitalize">{title}</p>
+          <p class="text-white text-xs md:text-lg text-center capitalize">{title}</p>
         {/each}
       </div>
       <div class="grid grid-cols-7 place-items-center gap-2">
@@ -178,13 +117,13 @@
         <p class="text-white">Sin publicacion esta fecha</p>
       {:else}
         <img src="{currentData.imgSrc}" alt="publicacion" class="">
-        <a target="_blank" href="{currentData.href}" class="text-sky-600 hover:underline mt-6">Enlace a la publicación</a>
+        <a target="_blank" href="{currentData.href}" class="text-sky-600 hover:underline mt-6">Enlace de la publicación</a>
       {/if}
     </div>
   </div>
 
   <div>
-    <p class="text-white">Total publicaciones: <span class="text-sky-600">{posts}</span></p>
+    <p class="text-white">Total publicaciones: <span class="text-sky-600 text-2xl font-bold">{posts}</span></p>
     <!-- <p class="text-white">Total de imagenes publicadas: <span class="text-sky-600">{imagesPosts}</span></p> -->
   </div>
 </section>
